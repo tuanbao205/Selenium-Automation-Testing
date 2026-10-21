@@ -89,9 +89,8 @@ Dự án bao gồm 5 test case tập trung vào chức năng đăng nhập, hi�
 | Tổng số test case | 5 |
 | Công cụ thực thi | pytest |
 | Công cụ tự động hóa | Selenium WebDriver |
-| Kết quả thực tế | Cập nhật sau khi chạy kiểm thử |
+| Kết quả thực tế | PASS |
 
-**Lưu ý:** Chạy `pytest -v` để xác định số lượng test thành công hoặc thất bại trong môi trường thực tế.
 
 ## 7. Kết luận
 
