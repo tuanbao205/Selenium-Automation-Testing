@@ -3,18 +3,18 @@
 Dự án thực hành kiểm thử tự động giao diện web bằng **Selenium WebDriver**, **Python** và **pytest** trên website demo [SauceDemo](https://www.saucedemo.com/).
 
 ## 1. Mục tiêu
+
 - Làm quen với Selenium WebDriver để tự động hóa thao tác trên trình duyệt.
 - Viết và tổ chức test case bằng pytest.
-- Kiểm tra các luồng đăng nhập và thao tác giỏ hàng cơ bản.
-- Ghi nhận kết quả chạy kiểm thử và có thể mở rộng thêm test case.
+- Kiểm tra các chức năng đăng nhập và thao tác giỏ hàng.
+- Ghi nhận kết quả kiểm thử và đánh giá hoạt động của các chức năng.
 
 ## 2. Công nghệ sử dụng
-- Python 3.10 trở lên (khuyến nghị)
-- Selenium WebDriver 4
-- pytest
-- Google Chrome
 
-Selenium Manager có thể tự xử lý việc tìm/tải driver phù hợp trong nhiều môi trường phổ biến; cần có kết nối Internet nếu driver chưa sẵn có.
+- **Python 3.10+**
+- **Selenium WebDriver 4**
+- **pytest**
+- **Google Chrome**
 
 ## 3. Các test case
 
@@ -22,15 +22,14 @@ Selenium Manager có thể tự xử lý việc tìm/tải driver phù hợp tro
 |---|---|---|
 | TC01 | Đăng nhập với tài khoản hợp lệ | Chuyển đến trang Products |
 | TC02 | Đăng nhập với mật khẩu không hợp lệ | Hiển thị thông báo lỗi đăng nhập |
-| TC03 | Kiểm tra danh sách sản phẩm | Tiêu đề Products và danh sách sản phẩm được hiển thị |
-| TC04 | Thêm một sản phẩm vào giỏ hàng | Badge giỏ hàng hiển thị số lượng 1 |
-| TC05 | Xóa sản phẩm khỏi giỏ hàng | Sản phẩm không còn trong giỏ và badge số lượng biến mất |
+| TC03 | Kiểm tra danh sách sản phẩm | Hiển thị tiêu đề Products và danh sách sản phẩm |
+| TC04 | Thêm sản phẩm vào giỏ hàng | Số lượng trên biểu tượng giỏ hàng là 1 |
+| TC05 | Xóa sản phẩm khỏi giỏ hàng | Sản phẩm được xóa và biểu tượng số lượng biến mất |
 
-Tài khoản demo:
+**Tài khoản demo SauceDemo:**
+
 - Username: `standard_user`
 - Password: `secret_sauce`
-
-Đây là tài khoản demo công khai của SauceDemo, không dùng mật khẩu cá nhân.
 
 ## 4. Cấu trúc dự án
 
@@ -43,7 +42,7 @@ Selenium-Automation-Testing/
 └── README.md
 ```
 
-## 5. Cài đặt và chạy
+## 5. Cài đặt và chạy chương trình
 
 ### Bước 1: Clone repository
 
@@ -52,22 +51,16 @@ git clone https://github.com/tuanbao205/Selenium-Automation-Testing.git
 cd Selenium-Automation-Testing
 ```
 
-### Bước 2: Tạo môi trường ảo (khuyến nghị)
+### Bước 2: Tạo môi trường ảo
 
-Windows PowerShell:
+Trên Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-Nếu PowerShell chặn kích hoạt môi trường ảo, có thể chạy trong Command Prompt:
-
-```bat
-.venv\Scripts\activate.bat
-```
-
-### Bước 3: Cài thư viện
+### Bước 3: Cài đặt thư viện
 
 ```bash
 python -m pip install -r requirements.txt
@@ -81,24 +74,25 @@ python -m pip install -r requirements.txt
 pytest -v
 ```
 
-Chỉ chạy file test:
+Hoặc chỉ chạy file test:
 
 ```bash
 pytest -v tests/test_saucedemo.py
 ```
 
-Mặc định trình duyệt chạy ở chế độ có giao diện để dễ quan sát. Mỗi test tạo và đóng một phiên trình duyệt riêng.
-
 ## 6. Kết quả kiểm thử
 
-Chạy `pytest -v` để xem kết quả thực tế trong terminal. **Không ghi trước số lượng test PASS/FAIL** vì kết quả phụ thuộc môi trường, trình duyệt và kết nối mạng.
+Dự án bao gồm 5 test case tập trung vào chức năng đăng nhập, hiển thị sản phẩm và quản lý giỏ hàng.
 
-Sau khi chạy, cập nhật:
-- Ngày giờ chạy:
-- Môi trường (Python / Chrome):
-- Kết quả: ___ passed, ___ failed
-- Ảnh chụp terminal: lưu trong thư mục `screenshots/` rồi thêm liên kết ảnh tại đây.
+| Nội dung | Mô tả |
+|---|---|
+| Tổng số test case | 5 |
+| Công cụ thực thi | pytest |
+| Công cụ tự động hóa | Selenium WebDriver |
+| Kết quả thực tế | Cập nhật sau khi chạy kiểm thử |
+
+**Lưu ý:** Chạy `pytest -v` để xác định số lượng test thành công hoặc thất bại trong môi trường thực tế.
 
 ## 7. Kết luận
 
-Bài thực hành minh họa cách dùng Selenium để tự động hóa các thao tác web phổ biến và dùng pytest để tổ chức, thực thi nhiều test case. Có thể phát triển thêm kiểm thử sắp xếp sản phẩm, trang chi tiết, checkout và đăng xuất.
+Dự án giúp làm quen với kiểm thử tự động giao diện web bằng Selenium WebDriver và tổ chức test case bằng pytest. Các test case được xây dựng nhằm kiểm tra những chức năng cơ bản của website SauceDemo, đồng thời tạo nền tảng để mở rộng kiểm thử các chức năng như thanh toán, sắp xếp sản phẩm và đăng xuất.
